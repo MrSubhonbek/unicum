@@ -1,0 +1,24 @@
+.welcome-card-border-less-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  margin-top: 50px;
+  padding: 5px;
+}
+.welcome-card-border-less-wrapper p {
+  font-size: 1.5rem;
+}
+.welcome-button {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+@media screen and (max-width: 685px) {
+  .welcome-card-border-less-wrapper div {
+    font-size: 1.5rem;
+  }
+  .welcome-card-border-less-wrapper p {
+    font-size: 1.2rem;
+  }
+}

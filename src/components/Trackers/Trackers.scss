@@ -1,0 +1,39 @@
+.tracker-card-border-less-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  margin: 50px 0;
+  padding: 5px;
+}
+.tracker-card-border-less-wrapper p {
+  font-size: 1.5rem;
+}
+.tracker-button {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+.tracker-radio {
+  width: 100%;
+  border: solid 1px lightgray;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  justify-content: space-between;
+  padding: 30px;
+}
+.tracker-radio span {
+  font-size: 1.2rem;
+}
+@media screen and (max-width: 685px) {
+  .tracker-card-border-less-wrapper div {
+    font-size: 1.5rem;
+  }
+  .tracker-card-border-less-wrapper p {
+    font-size: 1.2rem;
+  }
+  .tracker-radio {
+    padding: 15px;
+  }
+}

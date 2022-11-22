@@ -1,0 +1,33 @@
+.container-header {
+  display: flex;
+  background: #1677ff;
+  width: 100%;
+  padding: 0 15px;
+  justify-content: space-between;
+  font-family: PT Sans, sans-serif;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item-header,
+.logo-header {
+  padding-inline: 50px;
+  align-items: center;
+  box-sizing: border-box;
+  column-gap: 0.25em;
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: bold;
+  justify-content: center;
+  min-height: 80px;
+  text-decoration: none;
+}
+.logo-header {
+  cursor: pointer;
+}
+@media screen and (max-width: 685px) {
+  .item-header {
+    display: none;
+  }
+}
