@@ -1,0 +1,49 @@
+.program-card-border-less-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  margin: 50px 0;
+  padding: 5px;
+}
+.program-card-border-less-wrapper p {
+  font-size: 1.5rem;
+}
+.program-button {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+.program-radio {
+  width: 100%;
+  border: solid 1px lightgray;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  justify-content: space-between;
+  padding: 30px;
+}
+.program-radio span {
+  font-size: 1.2rem;
+}
+.program-button-group {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 685px) {
+  .program-card-border-less-wrapper div {
+    font-size: 1.5rem;
+  }
+  .program-card-border-less-wrapper p {
+    font-size: 1.2rem;
+  }
+  .program-radio {
+    padding: 10px;
+    font-size: 1rem;
+  }
+  .program-radio span {
+    font-size: 1rem;
+  }
+}

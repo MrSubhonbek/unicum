@@ -1,39 +1,30 @@
-import { useState } from "react";
 import { InfoCircleOutlined } from "@ant-design/icons";
-import { Button, Card, Popover, Radio, Space } from "antd";
-
-import { tracks } from "../../assets/tracks";
-import "./Trackers.scss";
+import { Button, Card, Radio, Space } from "antd";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../app/hooks";
-import { optTrack } from "../../app/slices/programSlice";
-
-export const Trackers = () => {
+import { optProgram } from "../../app/slices/programSlice";
+import { programs } from "../../assets/programs";
+import "./Programs.scss";
+export const Programs = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
   const dispatch = useAppDispatch();
-  const handleShowTracks = tracks.map((track) => {
-    const content = <p>{track.descriptions}</p>;
+
+  const handleShowPrograms = programs.map((program) => {
     return (
-      <div className="tracker-radio">
-        <Radio value={track.name}>{track.name}</Radio>
-        <Popover
-          overlayStyle={{
-            width: "300px",
-          }}
-          content={content}
-          title=""
-          trigger="click"
-        >
+      <div className="program-radio">
+        <Radio value={program.name}>{program.name}</Radio>
+        <Button type="link" href={program.link}>
           <InfoCircleOutlined />
-        </Popover>
+        </Button>
       </div>
     );
   });
   return (
-    <div className="tracker-card-border-less-wrapper">
+    <div className="program-card-border-less-wrapper">
       <Card
-        title="Добро пожаловать!"
+        title=""
         bordered={false}
         style={{ maxWidth: 850, paddingTop: 25 }}
         headStyle={{ textAlign: "center", fontSize: "2.2rem" }}
@@ -49,11 +40,16 @@ export const Trackers = () => {
           value={value}
         >
           <Space direction="vertical" style={{ width: "100%" }}>
-            {handleShowTracks}
+            {handleShowPrograms}
           </Space>
         </Radio.Group>
-        <div className="tracker-button-group">
-          <Button danger size="large" type="text" onClick={() => navigate("/")}>
+        <div className="program-button-group">
+          <Button
+            danger
+            size="large"
+            type="text"
+            onClick={() => navigate("/professionalTrackers")}
+          >
             Назад
           </Button>
           <Button
@@ -61,8 +57,8 @@ export const Trackers = () => {
             size="large"
             type="primary"
             onClick={() => {
-              navigate("/mastersPrograms");
-              dispatch(optTrack(value));
+              navigate("/total");
+              dispatch(optProgram(value));
             }}
           >
             Далее
