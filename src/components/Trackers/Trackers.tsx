@@ -1,21 +1,32 @@
-import { InfoCircleOutlined } from "@ant-design/icons";
-import "./Trackers.scss";
-import { Card, Collapse, Radio, Space } from "antd";
 import { useState } from "react";
+import { InfoCircleOutlined } from "@ant-design/icons";
+import { Button, Card, Popover, Radio, Space } from "antd";
 
 import { tracks } from "../../assets/tracks";
-const { Panel } = Collapse;
+import "./Trackers.scss";
+import { useNavigate } from "react-router-dom";
 
 export const Trackers = () => {
+  const navigate = useNavigate();
   const [value, setValue] = useState("");
-  const handleShowTracks = tracks.map((track) => (
-    <div className="tracker-radio" key={track.id}>
-      <Radio value={track.name}>{track.name}</Radio>
-      <Panel header={"asd"} key={track.id}>
-        {track.descriptions}
-      </Panel>
-    </div>
-  ));
+  const handleShowTracks = tracks.map((track) => {
+    const content = <p>{track.descriptions}</p>;
+    return (
+      <div className="tracker-radio">
+        <Radio value={track.name}>{track.name}</Radio>
+        <Popover
+          overlayStyle={{
+            width: "300px",
+          }}
+          content={content}
+          title=""
+          trigger="click"
+        >
+          <InfoCircleOutlined />
+        </Popover>
+      </div>
+    );
+  });
   return (
     <div className="tracker-card-border-less-wrapper">
       <Card
@@ -35,9 +46,24 @@ export const Trackers = () => {
           value={value}
         >
           <Space direction="vertical" style={{ width: "100%" }}>
-            <Collapse bordered={false}>{handleShowTracks}</Collapse>
+            {handleShowTracks}
           </Space>
         </Radio.Group>
+        <div className="tracker-button-group">
+          <Button danger size="large" type="text" onClick={() => navigate("/")}>
+            Назад
+          </Button>
+          <Button
+            disabled={value === ""}
+            size="large"
+            type="primary"
+            onClick={() => {
+              navigate("/mastersPrograms");
+            }}
+          >
+            Далее
+          </Button>
+        </div>
       </Card>
     </div>
   );
