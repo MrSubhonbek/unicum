@@ -1,11 +1,14 @@
-import { InfoCircleOutlined } from "@ant-design/icons";
+import { useState } from "react";
 import { Button, Card, Radio, Space } from "antd";
-import React, { useState } from "react";
+import { InfoCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+
 import { useAppDispatch } from "../../app/hooks";
 import { optProgram } from "../../app/slices/programSlice";
 import { programs } from "../../assets/programs";
+
 import "./Programs.scss";
+
 export const Programs = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
@@ -13,7 +16,7 @@ export const Programs = () => {
 
   const handleShowPrograms = programs.map((program) => {
     return (
-      <div className="program-radio">
+      <div className="program-radio" key={program.id}>
         <Radio value={program.name}>{program.name}</Radio>
         <Button type="link" href={program.link}>
           <InfoCircleOutlined />
@@ -21,6 +24,7 @@ export const Programs = () => {
       </div>
     );
   });
+
   return (
     <div className="program-card-border-less-wrapper">
       <Card

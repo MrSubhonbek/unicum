@@ -1,8 +1,12 @@
-import { Logo } from "./Logo";
-import "./Header.scss";
 import { useNavigate } from "react-router-dom";
+
+import { Logo } from "./Logo";
+
+import "./Header.scss";
+
 export const Header = () => {
   const navigate = useNavigate();
+
   return (
     <div className="container-header">
       <div className="item-header">

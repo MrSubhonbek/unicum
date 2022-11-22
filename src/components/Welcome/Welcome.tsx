@@ -5,6 +5,7 @@ import "./Welcome.scss";
 
 export const Welcome = () => {
   const navigate = useNavigate();
+
   return (
     <div className="welcome-card-border-less-wrapper">
       <Card

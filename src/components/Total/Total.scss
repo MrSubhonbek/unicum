@@ -1,0 +1,26 @@
+.total-card-border-less-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  margin: 50px 0;
+  padding: 5px;
+}
+.total-card-border-less-wrapper p {
+  font-size: 1.5rem;
+  padding: 0 25px;
+}
+.total-card-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 685px) {
+  .total-card-border-less-wrapper div {
+    font-size: 1.5rem;
+  }
+  .total-card-border-less-wrapper p {
+    font-size: 1.2rem;
+    padding: 0;
+  }
+}

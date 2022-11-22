@@ -1,21 +1,23 @@
 import { useState } from "react";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Card, Popover, Radio, Space } from "antd";
+import { useNavigate } from "react-router-dom";
 
 import { tracks } from "../../assets/tracks";
-import "./Trackers.scss";
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../app/hooks";
 import { optTrack } from "../../app/slices/programSlice";
+
+import "./Trackers.scss";
 
 export const Trackers = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
   const dispatch = useAppDispatch();
+
   const handleShowTracks = tracks.map((track) => {
     const content = <p>{track.descriptions}</p>;
     return (
-      <div className="tracker-radio">
+      <div className="tracker-radio" key={track.id}>
         <Radio value={track.name}>{track.name}</Radio>
         <Popover
           overlayStyle={{
@@ -30,6 +32,7 @@ export const Trackers = () => {
       </div>
     );
   });
+
   return (
     <div className="tracker-card-border-less-wrapper">
       <Card

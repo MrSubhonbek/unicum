@@ -11,6 +11,7 @@ export const AppRoutes = () => {
       <Route path="professionalTrackers" element={<Trackers />} />
       <Route path="mastersPrograms" element={<Programs />} />
       <Route path="total" element={<Total />} />
+      <Route path="programSelection" element={<h1>program selection</h1>} />
     </Routes>
   );
 };
